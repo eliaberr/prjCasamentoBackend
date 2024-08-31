@@ -1,5 +1,10 @@
 import express from 'express'
+import cors from 'cors'
+
 const app = express()
+
+app.use(cors())
+
 
 
 const presentes = [
@@ -26,6 +31,11 @@ const presentes = [
     }
 ]
 
+function buscarPresentePorId(id){
+    return presentes.filter( presente => presente.id == id )
+}
+
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -34,6 +44,10 @@ app.get('/', (req, res) => {
 app.get('/presentes', (req, res) => {
     res.send(presentes)
   })
+
+app.get('/presentes/:id', (req, res) => {
+    res.json(buscarPresentePorId(req.params.id))
+})
 
 export default app
 
