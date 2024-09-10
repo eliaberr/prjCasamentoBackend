@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import conexao from './infra/conexao'
+import conexao from './infra/conexao.js'
 
 const app = express()
 app.use(express.json()) 
@@ -36,7 +36,17 @@ app.get('/presentes', (req, res) => {
   })
 
 app.get('/presentes/:id', (req, res) => {
-    res.json(buscarPresentePorId(req.params.id))
+    //res.json(buscarPresentePorId(req.params.id))
+    const id = req.params.id
+    const sql = "SELECT * FROM presentes"
+    conexao.query(sql, id, (erro, resultado) =>{
+        if(erro){
+            console.log(erro);
+            res.status(404).json('erro')
+        }else{
+            res.status(200).json(resultado)
+        }
+    })
 })
 
 app.post('/presentes', (req, res) => {
