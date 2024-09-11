@@ -23,7 +23,6 @@ function buscarIndexPorId(id){
 
 
 app.get('/presentes', (req, res) => {
-    //res.send(presentes)
     const sql = "SELECT * FROM presentes"
     conexao.query(sql, (erro, resultado) =>{
         if(erro){
@@ -36,7 +35,6 @@ app.get('/presentes', (req, res) => {
   })
 
 app.get('/presentes/:id', (req, res) => {
-    //res.json(buscarPresentePorId(req.params.id))
     const id = req.params.id
     const sql = "SELECT * FROM presentes WHERE id=?"
     conexao.query(sql, id, (erro, resultado) =>{
@@ -62,10 +60,17 @@ app.delete('/presentes/:id', (req, res) => {
 })
 
 app.put('/presentes/:id', (req, res) => {
-    let index = buscarIndexPorId(req.params.id)
-
-    presentes[index].telefoneDoUser = req.body.telefoneDoUser
-    res.json(presentes)
+    const id = req.params.id
+    const presente = req.body
+    const sql = "UPDATE presentes SET ? WHERE id=?"
+    conexao.query(sql, [presente, id], (erro, resultado) =>{
+        if(erro){
+            console.log(erro);
+            res.status(404).json('erro')
+        }else{
+            res.status(200).json(resultado)
+        }
+    })
 })
 
 
