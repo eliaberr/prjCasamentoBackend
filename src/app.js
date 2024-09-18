@@ -5,22 +5,7 @@ import conexao from './infra/conexao.js'
 const app = express()
 app.use(express.json()) 
 
-
 app.use(cors())
-
-
-
-
-
-function buscarPresentePorId(id){
-    return presentes.filter( presente => presente.id == id )
-}
-
-function buscarIndexPorId(id){
-    return presentes.findIndex(presente => presente.id == id)
-}
-
-
 
 app.get('/presentes', (req, res) => {
     const sql = "SELECT * FROM presentes"
@@ -75,12 +60,6 @@ app.post('/pixpresente', (req, res) => {
     })
 })
 
-app.delete('/presentes/:id', (req, res) => {
-    let index = buscarIndexPorId(req.params.id)
-    presentes.splice(index, 1)
-    res.status(201).send('excluido com sucesso')
-})
-
 app.put('/presentes/:id', (req, res) => {
     const id = req.params.id
     const presente = req.body
@@ -94,10 +73,6 @@ app.put('/presentes/:id', (req, res) => {
         }
     })
 })
-
-
-
-
 
 export default app
 
