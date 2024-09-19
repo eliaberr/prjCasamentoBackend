@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import conexao from './infra/conexao.js'
+import conexao from './conexao.js'
 
 const app = express()
 app.use(express.json()) 
