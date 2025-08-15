@@ -2,7 +2,7 @@
 
 Backend do projeto prjCasamento, responsável por fornecer e gerenciar dados do site, incluindo confirmação de presença, gerenciamento de presentes e integração com pagamentos via Pix.
 
-> **Stack:** Node.js (JavaScript) • Deploy: Vercel  
+> **Stack:** Node.js (JavaScript) • Deploy: Disclaud 
 > **Arquivos principais no repo:** `app.js`, `server.js`, `conexao.js`, `package.json`. :contentReference[oaicite:1]{index=1}  
 > **Prod (About do repo):** prj-casamento-backend.vercel.app :contentReference[oaicite:2]{index=2}
 
