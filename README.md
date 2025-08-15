@@ -1,4 +1,4 @@
-💍 prjCasamentoBackend — API do Site de Casamento
+# 💍 prjCasamento — Site de Casamento
 
 Backend do projeto prjCasamento, responsável por fornecer e gerenciar dados do site, incluindo confirmação de presença, gerenciamento de presentes e integração com pagamentos via Pix.
 
