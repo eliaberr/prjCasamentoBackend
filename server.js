@@ -3,8 +3,8 @@ dotenv.config()
 
 import app from "./app.js"
 
-const port = 3001
+const PORT = process.env.PORT || 3001;
 
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log(`Example app listening on port ${port}`)
 })
