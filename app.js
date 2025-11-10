@@ -12,7 +12,7 @@ app.get('/presentes', (req, res) => {
     conexao.query(sql, (erro, resultado) =>{
         if(erro){
             console.log(erro);
-            res.status(404).json('erro')
+            res.status(404).json('erro na onde??')
         }else{
             res.status(200).json(resultado)
         }
