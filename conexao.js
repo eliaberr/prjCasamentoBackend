@@ -1,13 +1,15 @@
-import mysql from 'mysql'
+import dotenv from "dotenv"
+dotenv.config()
+import mysql from "mysql2";
 
 const conexao = mysql.createConnection({
-    host:'181.215.253.124',
-    port:'3306',
-    user:'eliabe',
-    password:'1533',
-    database:'presentes'
-})
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
+});
 
-conexao.connect()
+conexao.connect();
 
-export default conexao
+export default conexao;

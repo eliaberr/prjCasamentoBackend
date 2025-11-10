@@ -60,6 +60,21 @@ app.post('/pixpresente', (req, res) => {
     })
 })
 
+app.post('/presentes', (req, res) => {
+    //res.json(buscarPresentePorId(req.params.id))
+    const pix = req.body
+    const sql = "INSERT INTO presentes SET ?"
+    
+    conexao.query(sql, pix, (erro, resultado) =>{
+        if(erro){
+            console.log(erro);
+            res.status(404).json('erro')
+        }else{
+            res.status(201).json(resultado)
+        }
+    })
+})
+
 app.put('/presentes/:id', (req, res) => {
     const id = req.params.id
     const presente = req.body
