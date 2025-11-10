@@ -3,11 +3,11 @@ dotenv.config()
 import mysql from "mysql2";
 
 const conexao = mysql.createConnection({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME
+  host: "gondola.proxy.rlwy.net",
+  port: 25117,
+  user: "root",
+  password: "nWByHrURQbxVFoGtAYXXMMnJisiRtdJQ",
+  database: "presentes"
 });
 
 conexao.connect();
